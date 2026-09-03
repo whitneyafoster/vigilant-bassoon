@@ -56,6 +56,33 @@ h1 em {
   background: var(--paper);
   box-shadow: 9px 9px 0 var(--ink);
 }
+.quiz-card {
+  margin: 2rem 0;
+  padding: 2rem;
+  border: 2px solid var(--line);
+  background: #f4b8a6;
+}
+.quiz-card h2 {
+  font-size: clamp(1.8rem, 5vw, 2.7rem);
+}
+.answer-buttons {
+  display: grid;
+  gap: 0.7rem;
+}
+.answer-button {
+  width: 100%;
+  margin: 0;
+  padding: 0.8rem;
+  box-shadow: none;
+  background: var(--paper);
+  color: var(--ink);
+  text-align: left;
+}
+.answer-button:hover {
+  background: var(--ink);
+  color: white;
+  transform: none;
+}
 .card-label {
   margin: 0;
   color: var(--accent);
@@ -108,3 +135,4 @@ button:hover {
   line-height: 1.6;
   opacity: 0.8;
 }
+
