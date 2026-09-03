@@ -5,6 +5,7 @@ const aestheticName = document.querySelector("#aesthetic-name");
 const aestheticDescription = document.querySelector("#aesthetic-description");
 const outfitFormula = document.querySelector("#outfit-formula");
 const colorSwatches = document.querySelector("#color-swatches");
+const answerButtons = document.querySelectorAll(".answer-button");
 
 const looks = [
   {
@@ -54,11 +55,10 @@ const looks = [
     description: "Intellectual, mysterious, and vintage-inspired—think libraries and classic literature.",
     outfit: "Try: tweed blazer + pleated skirt + oxford shoes.",
     colors: ["#3B2F2F", "#A67B5B", "#D9C9B6", "#5C4033"]
+  },
 ];
 
-function showRandomLook() {
-  const randomIndex = Math.floor(Math.random() * looks.length);
-  const selectedLook = looks[randomIndex];
+function showLook(selectedLook) {
 
   aestheticName.textContent = selectedLook.name;
   aestheticDescription.textContent = selectedLook.description;
@@ -70,4 +70,27 @@ function showRandomLook() {
   });
 }
 
+function showRandomLook() {
+  const randomIndex = Math.floor(Math.random() * looks.length);
+  const selectedLook = looks[randomIndex];
+  showLook(selectedLook);
+}
+
+function chooseMood(event) {
+  const chosenMood = event.target.dataset.mood;
+
+  if (chosenMood === "bookish") showLook(looks[0]);
+  if (chosenMood === "discreet") showLook(looks[1]);
+  if (chosenMood === "bold") showLook(looks[2]);
+  if (chosenMood === "romantic") showLook(looks[3]);
+  if (chosenMood === "futuristic") showLook(looks[4]);
+  if (chosenMood === "eclectic") showLook(looks[5]);
+  if (chosenMood === "minimalist") showLook(looks[6]);
+  if (chosenMood === "mysterious") showLook(looks[7]);
+}
+
 findLookButton.addEventListener("click", showRandomLook);
+answerButtons.forEach(function (button) {
+  button.addEventListener("click", chooseMood);
+});
+
